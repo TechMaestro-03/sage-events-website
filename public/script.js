@@ -28,24 +28,6 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// Form submission
-const contactForm = document.getElementById('event-form');
-if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        
-        // Get form values
-        const formData = new FormData(contactForm);
-        const data = Object.fromEntries(formData);
-        
-        // In a real application, you would send this data to a server
-        console.log('Form submitted:', data);
-        
-        // Show success message
-        alert('Thank you for your message! We will contact you soon to discuss your event.');
-        contactForm.reset();
-    });
-}
 
 // Smooth scrolling for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {

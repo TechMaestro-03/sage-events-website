@@ -207,13 +207,15 @@
                 <div class="contact-form">
                     <form id="event-form">
                         <div class="form-group">
-                            <input type="text" placeholder="Your Name" required>
+                            <input type="text" name="name" placeholder="Your Name" required>
                         </div>
+                    
                         <div class="form-group">
-                            <input type="email" placeholder="Your Email" required>
+                            <input type="email" name="email" placeholder="Your Email" required>
                         </div>
+                    
                         <div class="form-group">
-                            <select required>
+                            <select name="eventType" required>
                                 <option value="" disabled selected>Event Type</option>
                                 <option value="birthday">Birthday Party</option>
                                 <option value="slumber">Slumber Party</option>
@@ -222,12 +224,16 @@
                                 <option value="other">Other</option>
                             </select>
                         </div>
+                    
                         <div class="form-group">
-                            <textarea placeholder="Tell us about your event..." rows="5" required></textarea>
+                            <textarea name="message" placeholder="Tell us about your event..." rows="5" required></textarea>
                         </div>
+                    
                         <button type="submit" class="btn btn-primary">Send Message</button>
                     </form>
+                    
                 </div>
+                
             </div>
         </div>
     </section>
@@ -267,6 +273,36 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        const contactForm = document.getElementById('event-form');
+        
+        contactForm.addEventListener('submit', function (e) {
+            e.preventDefault(); // ⛔ stop URL submission
+        
+            const name = contactForm.name.value.trim();
+            const email = contactForm.email.value.trim();
+            const eventType = contactForm.eventType.value;
+            const message = contactForm.message.value.trim();
+        
+            const whatsappMessage =
+                `Hello Sage Events,%0A%0A` +
+                `Name: ${name}%0A` +
+                `Email: ${email}%0A` +
+                `Event Type: ${eventType}%0A` +
+                `Message: ${message}`;
+        
+            const phoneNumber = "+254 798 237 944"; // 🔁 REPLACE WITH YOUR NUMBER
+        
+            window.open(
+                `https://wa.me/${phoneNumber}?text=${encodeURIComponent(whatsappMessage)}`,
+                "_blank"
+            );
+        
+            contactForm.reset();
+        });
+        </script>
+        
 
     <script src="script.js"></script>
 </body>
