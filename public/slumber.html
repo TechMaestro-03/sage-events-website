@@ -1,0 +1,959 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slumber Parties | Sage Events</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Slumber Parties Page Specific Styles */
+        :root {
+            --slumber-primary: #9D4EDD; /* Purple for slumber theme */
+            --slumber-secondary: #FF5C8D; /* Pink */
+            --slumber-light: #F5F3FF; /* Light purple background */
+            --slumber-dark: #5A189A; /* Dark purple */
+            --slumber-accent: #FF9E00; /* Orange accent */
+        }
+        
+        .slumber-hero {
+            background: linear-gradient(rgba(157, 78, 221, 0.9), rgba(157, 78, 221, 0.85)), url('https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 180px 0 100px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .slumber-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E");
+        }
+        
+        .slumber-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 4rem;
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        
+        .slumber-title span {
+            color: #FFD166;
+        }
+        
+        .slumber-subtitle {
+            font-size: 1.4rem;
+            max-width: 800px;
+            margin: 0 auto 40px;
+            color: rgba(255, 255, 255, 0.95);
+            line-height: 1.6;
+        }
+        
+        .slumber-intro {
+            padding: 100px 0;
+            background-color: var(--slumber-light);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .slumber-intro::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%239C92AC' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+        
+        .slumber-intro-content {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .slumber-intro-text {
+            flex: 1;
+        }
+        
+        .slumber-intro-text h2 {
+            color: var(--slumber-dark);
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.8rem;
+            margin-bottom: 25px;
+            line-height: 1.2;
+        }
+        
+        .slumber-intro-text h2 span {
+            color: var(--slumber-secondary);
+        }
+        
+        .slumber-intro-text p {
+            font-size: 1.1rem;
+            margin-bottom: 25px;
+            color: var(--text-color);
+            line-height: 1.7;
+        }
+        
+        .slumber-intro-image {
+            flex: 1;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(157, 78, 221, 0.2);
+            border: 8px solid white;
+            transform: rotate(3deg);
+            transition: transform 0.5s ease;
+        }
+        
+        .slumber-intro-image:hover {
+            transform: rotate(0deg);
+        }
+        
+        .slumber-intro-image img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .slumber-features {
+            padding: 80px 0;
+            background-color: white;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+        
+        .feature-item {
+            background-color: white;
+            border-radius: 20px;
+            padding: 40px 30px;
+            box-shadow: 0 10px 30px rgba(157, 78, 221, 0.1);
+            transition: var(--transition);
+            text-align: center;
+            border-top: 6px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .feature-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(157, 78, 221, 0.05), rgba(255, 92, 141, 0.05));
+            z-index: -1;
+        }
+        
+        .feature-item:hover {
+            transform: translateY(-10px);
+            border-top-color: var(--slumber-secondary);
+            box-shadow: 0 20px 40px rgba(157, 78, 221, 0.15);
+        }
+        
+        .feature-icon {
+            width: 90px;
+            height: 90px;
+            background: linear-gradient(135deg, var(--slumber-primary), var(--slumber-secondary));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            box-shadow: 0 10px 20px rgba(157, 78, 221, 0.3);
+        }
+        
+        .feature-icon i {
+            font-size: 2.5rem;
+            color: white;
+        }
+        
+        .feature-item h3 {
+            color: var(--slumber-dark);
+            font-family: 'Poppins', sans-serif;
+            margin-bottom: 15px;
+            font-size: 1.6rem;
+        }
+        
+        .feature-item p {
+            color: var(--text-color);
+            font-size: 1rem;
+        }
+        
+        .slumber-themes {
+            padding: 100px 0;
+            background-color: var(--slumber-light);
+        }
+        
+        .themes-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+        
+        .theme-card {
+            background-color: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+            position: relative;
+        }
+        
+        .theme-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 25px 50px rgba(157, 78, 221, 0.2);
+        }
+        
+        .theme-image {
+            height: 250px;
+            overflow: hidden;
+        }
+        
+        .theme-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .theme-card:hover .theme-image img {
+            transform: scale(1.1);
+        }
+        
+        .theme-content {
+            padding: 30px;
+            position: relative;
+        }
+        
+        .theme-badge {
+            position: absolute;
+            top: -20px;
+            right: 20px;
+            background-color: var(--slumber-accent);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            box-shadow: 0 5px 15px rgba(255, 158, 0, 0.3);
+        }
+        
+        .theme-content h3 {
+            color: var(--slumber-dark);
+            font-family: 'Poppins', sans-serif;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+        
+        .theme-content p {
+            color: var(--text-color);
+            margin-bottom: 20px;
+        }
+        
+        .theme-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        
+        .theme-feature {
+            background-color: rgba(157, 78, 221, 0.1);
+            color: var(--slumber-primary);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+        
+        .slumber-gallery {
+            padding: 80px 0;
+            background-color: white;
+        }
+        
+        .gallery-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 50px;
+        }
+        
+        .gallery-item {
+            border-radius: 15px;
+            overflow: hidden;
+            height: 300px;
+            position: relative;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px;
+            background: linear-gradient(to top, rgba(90, 24, 154, 0.9), transparent);
+            color: white;
+            transform: translateY(10px);
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+        
+        .gallery-item:hover .gallery-overlay {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        
+        .slumber-cta {
+            padding: 100px 0;
+            text-align: center;
+            background: linear-gradient(135deg, var(--slumber-primary), var(--slumber-dark));
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .slumber-cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+        }
+        
+        .slumber-cta h2 {
+            color: white;
+            font-family: 'Poppins', sans-serif;
+            font-size: 3rem;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        
+        .slumber-cta p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            color: rgba(255, 255, 255, 0.95);
+            position: relative;
+        }
+        
+        .slumber-cta .btn {
+            position: relative;
+            z-index: 2;
+            background-color: var(--slumber-accent);
+            border: none;
+            font-size: 1.1rem;
+            padding: 18px 45px;
+        }
+        
+        .slumber-cta .btn:hover {
+            background-color: #FF8C00;
+        }
+        
+        .slumber-packages {
+            padding: 80px 0;
+            background-color: white;
+        }
+        
+        .packages-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+        
+        .package-card {
+            background-color: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+            text-align: center;
+            position: relative;
+            border: 3px solid transparent;
+        }
+        
+        .package-card.featured {
+            border-color: var(--slumber-secondary);
+            transform: scale(1.05);
+        }
+        
+        .package-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(157, 78, 221, 0.2);
+        }
+        
+        .package-card.featured:hover {
+            transform: scale(1.05) translateY(-10px);
+        }
+        
+        .package-header {
+            background: linear-gradient(135deg, var(--slumber-primary), var(--slumber-secondary));
+            color: white;
+            padding: 30px;
+            position: relative;
+        }
+        
+        .package-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: var(--slumber-accent);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        .package-header h3 {
+            color: white;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+        
+        .package-price {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+        
+        .package-duration {
+            opacity: 0.9;
+        }
+        
+        .package-content {
+            padding: 30px;
+        }
+        
+        .package-features {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 30px;
+            text-align: left;
+        }
+        
+        .package-features li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+        
+        .package-features li i {
+            color: var(--slumber-primary);
+            margin-top: 3px;
+        }
+        
+        .package-button {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--slumber-primary), var(--slumber-secondary));
+            color: white;
+            padding: 15px 35px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-family: 'Montserrat', sans-serif;
+            width: 100%;
+        }
+        
+        .package-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(157, 78, 221, 0.3);
+        }
+        
+        /* Responsive Styles for Slumber Page */
+        @media (max-width: 992px) {
+            .slumber-intro-content {
+                flex-direction: column;
+            }
+            
+            .slumber-title {
+                font-size: 3.2rem;
+            }
+            
+            .package-card.featured {
+                transform: scale(1);
+            }
+            
+            .package-card.featured:hover {
+                transform: translateY(-10px);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .slumber-hero {
+                padding: 150px 0 80px;
+            }
+            
+            .slumber-title {
+                font-size: 2.8rem;
+            }
+            
+            .slumber-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .slumber-intro-text h2 {
+                font-size: 2.2rem;
+            }
+            
+            .slumber-cta h2 {
+                font-size: 2.5rem;
+            }
+            
+            .gallery-container {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .slumber-title {
+                font-size: 2.2rem;
+            }
+            
+            .slumber-cta h2 {
+                font-size: 2rem;
+            }
+            
+            .slumber-intro-text h2 {
+                font-size: 1.8rem;
+            }
+            
+            .feature-item,
+            .theme-card,
+            .package-card {
+                padding: 25px 20px;
+            }
+            
+            .gallery-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation (same as main site) -->
+    <header class="header">
+        <div class="container">
+            <a href="index.html" class="logo">Sage<span>Events</span></a>
+            <nav class="navbar">
+                <a href="index.html#home" class="nav-link">Home</a>
+                <a href="index.html#about" class="nav-link">About</a>
+                <a href="index.html#services" class="nav-link">Services</a>
+                <a href="index.html#portfolio" class="nav-link">Portfolio</a>
+                <a href="index.html#contact" class="nav-link">Contact</a>
+            </nav>
+            <button class="menu-toggle" aria-label="Menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Slumber Parties Hero Section -->
+    <section class="slumber-hero">
+        <div class="container">
+            <h1 class="slumber-title">Slumber Party <span>Magic</span></h1>
+            <p class="slumber-subtitle">Unwind, laugh, and make memories that last a lifetime. We turn ordinary sleepovers into extraordinary slumber party experiences.</p>
+            <a href="#packages" class="btn btn-primary">Plan a Slumber Party</a>
+        </div>
+    </section>
+
+    <!-- Slumber Intro -->
+    <section class="slumber-intro">
+        <div class="container">
+            <div class="slumber-intro-content">
+                <div class="slumber-intro-text">
+                    <h2>Where Dreams Come <span>Alive</span></h2>
+                    <p>At Sage Events, we believe sleepovers should be more than just pajamas and popcorn—they should be magical experiences filled with laughter, creativity, and unforgettable moments. Our slumber parties transform ordinary nights into extraordinary adventures that kids and teens will remember forever.</p>
+                    <p>With themed decorations, fun activities, and careful attention to every detail, we create immersive experiences that spark imagination and foster friendships. From cozy pillow forts to glamorous spa nights, we tailor each party to match the interests and personalities of our young guests.</p>
+                    <p>Freeze the moment, relive the magic—every snapshot tells the story of an unforgettable event.</p>
+                    <a href="#themes" class="btn btn-secondary" style="margin-top: 20px; background-color: var(--slumber-primary); border-color: var(--slumber-primary);">Explore Party Themes</a>
+                </div>
+                <div class="slumber-intro-image">
+                    <img src="https://media.istockphoto.com/id/2010725611/photo/we-needed-tonight.webp?a=1&b=1&s=612x612&w=0&k=20&c=81SIQWc0Kqh47i6IM2AngEQmzPISqBg0C6XZHVGlMsU=" alt="Fun slumber party with friends">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slumber Features -->
+    <section class="slumber-features">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">What Makes Our Slumber Parties <span>Special</span></h2>
+                <p class="section-subtitle">We go beyond the ordinary to create extraordinary experiences</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h3>Themed Decorations</h3>
+                    <p>Transform any space into a magical wonderland with our custom-themed decorations, from enchanted forests to Hollywood glamour.</p>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-gamepad"></i>
+                    </div>
+                    <h3>Fun Activities</h3>
+                    <p>Keep the fun going all night with curated games, crafts, movies, and interactive activities designed for maximum enjoyment.</p>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <h3>Delicious Treats</h3>
+                    <p>From DIY pizza stations to decadent dessert bars and midnight snacks, we provide tasty treats that everyone will love.</p>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-camera"></i>
+                    </div>
+                    <h3>Photo Moments</h3>
+                    <p>Capture the fun with themed photo booths, props, and backdrops that create lasting memories of the special night.</p>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-gift"></i>
+                    </div>
+                    <h3>Party Favors</h3>
+                    <p>Send guests home with personalized party favors and goodie bags that extend the magic beyond the slumber party.</p>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-user-shield"></i>
+                    </div>
+                    <h3>Safety First</h3>
+                    <p>Our trained staff ensures a safe, supervised environment so parents can relax while kids have the time of their lives.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slumber Themes -->
+    <section class="slumber-themes" id="themes">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Popular Slumber Party <span>Themes</span></h2>
+                <p class="section-subtitle">Choose from our curated themes or let us create a custom one just for you</p>
+            </div>
+            
+            <div class="themes-container">
+                <div class="theme-card">
+                    <div class="theme-image">
+                        <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80" alt="Glamorous Spa Night">
+                    </div>
+                    <div class="theme-badge">Most Popular</div>
+                    <div class="theme-content">
+                        <h3>Glamorous Spa Night</h3>
+                        <p>Pamper party with DIY facials, manicures, fluffy robes, and relaxing atmosphere for the ultimate girls' night in.</p>
+                        <div class="theme-features">
+                            <span class="theme-feature">DIY Facials</span>
+                            <span class="theme-feature">Manicure Station</span>
+                            <span class="theme-feature">Fluffy Robes</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="theme-card">
+                    <div class="theme-image">
+                        <img src="https://images.unsplash.com/photo-1545696563-af8f6ec2295a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80" alt="Hollywood Red Carpet">
+                    </div>
+                    <div class="theme-content">
+                        <h3>Hollywood Red Carpet</h3>
+                        <p>Star-studded night with paparazzi photo booth, mocktail bar, movie screening, and celebrity-inspired games.</p>
+                        <div class="theme-features">
+                            <span class="theme-feature">Photo Booth</span>
+                            <span class="theme-feature">Mocktail Bar</span>
+                            <span class="theme-feature">Movie Screening</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="theme-card">
+                    <div class="theme-image">
+                        <img src="https://images.unsplash.com/photo-1511988617509-a57c8a288659?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1771&q=80" alt="Enchanted Garden">
+                    </div>
+                    <div class="theme-content">
+                        <h3>Enchanted Garden</h3>
+                        <p>Magical fairy-tale experience with floral decorations, twinkling lights, nature crafts, and mystical activities.</p>
+                        <div class="theme-features">
+                            <span class="theme-feature">Floral Decor</span>
+                            <span class="theme-feature">Twinkling Lights</span>
+                            <span class="theme-feature">Nature Crafts</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slumber Packages 
+    <section class="slumber-packages" id="packages">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Slumber Party <span>Packages</span></h2>
+                <p class="section-subtitle">Choose the perfect package for your magical slumber party experience</p>
+            </div>
+            
+            <div class="packages-container">
+                <div class="package-card">
+                    <div class="package-header">
+                        <h3>Dreamy Delight</h3>
+                        <div class="package-price">$299</div>
+                        <div class="package-duration">For up to 8 guests</div>
+                    </div>
+                    <div class="package-content">
+                        <ul class="package-features">
+                            <li><i class="fas fa-check"></i> Basic themed decorations</li>
+                            <li><i class="fas fa-check"></i> 3 fun activity stations</li>
+                            <li><i class="fas fa-check"></i> Pizza & snack bar</li>
+                            <li><i class="fas fa-check"></i> DIY dessert station</li>
+                            <li><i class="fas fa-check"></i> Basic photo corner</li>
+                            <li><i class="fas fa-times" style="color: #ccc;"></i> <span style="color: #999;">Themed pajamas for guests</span></li>
+                            <li><i class="fas fa-times" style="color: #ccc;"></i> <span style="color: #999;">Professional photography</span></li>
+                        </ul>
+                        <button class="package-button">Choose Package</button>
+                    </div>
+                </div>
+                
+                <div class="package-card featured">
+                    <div class="package-header">
+                        <div class="package-badge">Most Popular</div>
+                        <h3>Magical Memories</h3>
+                        <div class="package-price">$499</div>
+                        <div class="package-duration">For up to 12 guests</div>
+                    </div>
+                    <div class="package-content">
+                        <ul class="package-features">
+                            <li><i class="fas fa-check"></i> Premium themed decorations</li>
+                            <li><i class="fas fa-check"></i> 5 interactive activity stations</li>
+                            <li><i class="fas fa-check"></i> Gourmet food & snack bar</li>
+                            <li><i class="fas fa-check"></i> Custom cake & dessert table</li>
+                            <li><i class="fas fa-check"></i> Themed photo booth with props</li>
+                            <li><i class="fas fa-check"></i> Matching pajamas for all guests</li>
+                            <li><i class="fas fa-times" style="color: #ccc;"></i> <span style="color: #999;">Professional photography</span></li>
+                        </ul>
+                        <button class="package-button">Choose Package</button>
+                    </div>
+                </div>
+                
+                <div class="package-card">
+                    <div class="package-header">
+                        <h3>Ultimate Fantasy</h3>
+                        <div class="package-price">$799</div>
+                        <div class="package-duration">For up to 15 guests</div>
+                    </div>
+                    <div class="package-content">
+                        <ul class="package-features">
+                            <li><i class="fas fa-check"></i> Complete venue transformation</li>
+                            <li><i class="fas fa-check"></i> 7+ premium activity stations</li>
+                            <li><i class="fas fa-check"></i> Gourmet catering with chef</li>
+                            <li><i class="fas fa-check"></i> Custom-designed cake & treats</li>
+                            <li><i class="fas fa-check"></i> Professional photo booth</li>
+                            <li><i class="fas fa-check"></i> Luxury pajamas & robes for all</li>
+                            <li><i class="fas fa-check"></i> Professional photographer (2 hours)</li>
+                        </ul>
+                        <button class="package-button">Choose Package</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- Slumber Gallery -->
+    <section class="slumber-gallery">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Slumber Party <span>Moments</span></h2>
+                <p class="section-subtitle">A glimpse into the magical nights we've created</p>
+            </div>
+            
+            <div class="gallery-container">
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80" alt="Spa night slumber party">
+                    <div class="gallery-overlay">
+                        <h4>Spa Night Celebration</h4>
+                        <p>Relaxing facial masks and manicures for a glamorous night in</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1545696563-af8f6ec2295a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80" alt="Movie night slumber party">
+                    <div class="gallery-overlay">
+                        <h4>Movie Marathon Night</h4>
+                        <p>Cozy blankets, popcorn, and favorite films for the perfect sleepover</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1511988617509-a57c8a288659?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1771&q=80" alt="Craft party slumber">
+                    <div class="gallery-overlay">
+                        <h4>Creative Craft Party</h4>
+                        <p>DIY crafts, friendship bracelets, and personalized creations</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="../images/IMG-20250427-WA0080.jpg" alt="Pillow fort slumber party">
+                    <div class="gallery-overlay">
+                        <h4>Pillow Fort Adventure</h4>
+                        <p>Epic pillow fort construction and storytelling under the stars</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slumber CTA -->
+    <section class="slumber-cta">
+        <div class="container">
+            <h2>Ready to Plan a Magical Slumber Party?</h2>
+            <p>Let us create an unforgettable night of fun, laughter, and memories that will last a lifetime. Contact us today to start planning the perfect slumber party experience!</p>
+            <a href="index.html#contact" class="btn btn-primary">Book Your Party Now</a>
+        </div>
+    </section>
+
+    <!-- Footer (same as main site) -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <a href="index.html" class="logo">Sage<span>Events</span></a>
+                    <p>Turning ordinary nights into extraordinary memories, one slumber party at a time.</p>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <a href="index.html">Home</a>
+                    <a href="index.html#about">About Us</a>
+                    <a href="index.html#services">Services</a>
+                    <a href="index.html#portfolio">Portfolio</a>
+                    <a href="index.html#contact">Contact</a>
+                </div>
+                
+                <div class="footer-social">
+                    <h4>Follow Us</h4>
+                    <div class="social-icons">
+                        <a href="https://www.instagram.com/_sage_events_and_decor?igsh=MWFtbHRkbmQ4M3Fhbg==" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.tiktok.com/@sage_events?_r=1&_t=ZM-92DsNnhxMQS" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://wa.me/254754778191" aria-label="whatsapp"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
+
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Sage Events. All rights reserved.</p>
+                <p>Nairobi, Kenya | Magical Slumber Party Planning</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navbar = document.querySelector('.navbar');
+        const navLinks = document.querySelectorAll('.nav-link');
+        
+        menuToggle.addEventListener('click', () => {
+            navbar.classList.toggle('active');
+            menuToggle.querySelector('i').classList.toggle('fa-bars');
+            menuToggle.querySelector('i').classList.toggle('fa-times');
+        });
+        
+        // Close mobile menu when clicking a link
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navbar.classList.remove('active');
+                menuToggle.querySelector('i').classList.add('fa-bars');
+                menuToggle.querySelector('i').classList.remove('fa-times');
+            });
+        });
+        
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+        
+        // Package selection buttons
+        const packageButtons = document.querySelectorAll('.package-button');
+        packageButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const packageName = this.closest('.package-card').querySelector('h3').textContent;
+                alert(`Thank you for your interest in our "${packageName}" package! We'll contact you shortly to discuss the details.`);
+                // In a real site, this would redirect to a contact form or booking page
+                window.location.href = 'index.html#contact';
+            });
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
