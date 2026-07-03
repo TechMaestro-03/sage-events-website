@@ -1,0 +1,1190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Corporate Events | Sage Events</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* ============================================================
+           SAGE EVENTS — CORPORATE PAGE (PINK THEME)
+           Matches Main Site Premium Editorial Design
+           ============================================================ */
+
+        /* === RESET & TOKENS === */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+          --cream:        #FFF0F5; /* Soft pinkish white background */
+          --blush:        #FCE4EC; /* Light pink for accents */
+          --rose-gold:    #E91E63; /* Main Vibrant Pink */
+          --rose-dark:    #C2185B; /* Deep Pink for hovers */
+          --ink:          #0D1B2A;
+          --ink-soft:     #3D4F61;
+          --white:        #FFFFFF;
+          --border:       rgba(233,30,99,0.18);
+
+          --shadow-sm:    0 2px 12px rgba(13,27,42,0.06);
+          --shadow-md:    0 8px 32px rgba(13,27,42,0.09);
+          --shadow-lg:    0 20px 56px rgba(13,27,42,0.12);
+
+          --radius-sm:    6px;
+          --radius:       14px;
+          --radius-lg:    24px;
+
+          --ease:         cubic-bezier(.4,0,.2,1);
+          --t:            all 0.3s var(--ease);
+
+          --font-display: 'Cormorant Garamond', 'Georgia', serif;
+          --font-body:    'DM Sans', system-ui, sans-serif;
+        }
+
+        html { scroll-behavior: smooth; }
+        body {
+          font-family: var(--font-body);
+          font-size: 0.9375rem;
+          font-weight: 400;
+          line-height: 1.7;
+          color: var(--ink-soft);
+          background: var(--cream);
+          overflow-x: hidden;
+          -webkit-font-smoothing: antialiased;
+        }
+        h1, h2, h3, h4 {
+          font-family: var(--font-display);
+          font-weight: 400;
+          line-height: 1.1;
+          color: var(--ink);
+          letter-spacing: -0.01em;
+        }
+        a { text-decoration: none; transition: var(--t); }
+        img { display: block; max-width: 100%; }
+        .container {
+          width: 100%;
+          max-width: 1120px;
+          margin: 0 auto;
+          padding: 0 28px;
+        }
+
+        /* === HEADER === */
+        .header {
+          position: fixed;
+          top: 0; left: 0; width: 100%;
+          z-index: 1000;
+          padding: 20px 0;
+          background: rgba(255,240,245,0.92);
+          backdrop-filter: blur(14px);
+          -webkit-backdrop-filter: blur(14px);
+          border-bottom: 1px solid var(--border);
+          transition: var(--t);
+        }
+        .header.scrolled { padding: 14px 0; box-shadow: var(--shadow-sm); }
+        .header .container {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+        }
+        .logo {
+          font-family: var(--font-display);
+          font-size: 1.55rem;
+          font-weight: 500;
+          color: var(--ink);
+          letter-spacing: 0.02em;
+        }
+        .logo span { color: var(--rose-gold); font-style: italic; }
+        .navbar { display: flex; gap: 36px; align-items: center; }
+        .nav-link {
+          font-size: 0.8rem;
+          font-weight: 500;
+          letter-spacing: 0.08em;
+          text-transform: uppercase;
+          color: var(--ink-soft);
+          position: relative;
+          padding-bottom: 3px;
+        }
+        .nav-link::after {
+          content: '';
+          position: absolute;
+          bottom: 0; left: 0;
+          width: 0; height: 1px;
+          background: var(--rose-gold);
+          transition: var(--t);
+        }
+        .nav-link:hover, .nav-link.active { color: var(--rose-gold); }
+        .nav-link:hover::after, .nav-link.active::after { width: 100%; }
+        .nav-cta {
+          font-size: 0.78rem;
+          font-weight: 600;
+          letter-spacing: 0.08em;
+          text-transform: uppercase;
+          color: var(--white);
+          background: var(--rose-gold);
+          padding: 9px 20px;
+          border-radius: 50px;
+        }
+        .nav-cta:hover { background: var(--rose-dark); color: var(--white); }
+        .menu-toggle {
+          display: none;
+          background: none;
+          border: none;
+          font-size: 1.2rem;
+          color: var(--ink);
+          cursor: pointer;
+        }
+
+        /* === CORPORATE HERO === */
+        .corporate-hero {
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, rgba(255,240,245,0.92), rgba(252,228,236,0.92)), url('https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1770&q=80');
+            background-size: cover;
+            background-position: center;
+            padding: 160px 0 100px;
+            text-align: center;
+        }
+        .corporate-hero::before {
+            content: '';
+            position: absolute;
+            top: -20%; left: 50%;
+            transform: translateX(-50%);
+            width: 900px; height: 900px;
+            border-radius: 50%;
+            border: 1px solid rgba(233,30,99,0.1);
+            pointer-events: none;
+        }
+        .corporate-hero::after {
+            content: '';
+            position: absolute;
+            top: -10%; left: 50%;
+            transform: translateX(-50%);
+            width: 620px; height: 620px;
+            border-radius: 50%;
+            border: 1px solid rgba(233,30,99,0.15);
+            pointer-events: none;
+        }
+        .corporate-hero .hero-inner {
+            position: relative;
+            z-index: 1;
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 0 28px;
+        }
+        .hero-eyebrow {
+          display: inline-flex;
+          align-items: center;
+          gap: 10px;
+          font-size: 0.68rem;
+          font-weight: 600;
+          letter-spacing: 0.2em;
+          text-transform: uppercase;
+          color: var(--rose-gold);
+          margin-bottom: 28px;
+        }
+        .hero-eyebrow::before, .hero-eyebrow::after {
+          content: '';
+          display: block;
+          width: 28px; height: 1px;
+          background: var(--rose-gold);
+          opacity: 0.6;
+        }
+        .hero-title {
+          font-size: clamp(3rem, 7vw, 5.5rem);
+          font-weight: 300;
+          line-height: 1.05;
+          color: var(--ink);
+          margin-bottom: 28px;
+          letter-spacing: -0.02em;
+        }
+        .hero-title em {
+          font-style: italic;
+          color: var(--rose-gold);
+          font-weight: 400;
+        }
+        .hero-subtitle {
+          font-size: 1rem;
+          line-height: 1.8;
+          color: var(--ink-soft);
+          max-width: 560px;
+          margin: 0 auto 40px;
+          font-weight: 300;
+        }
+        .hero-actions {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 16px;
+          flex-wrap: wrap;
+        }
+
+        /* === BUTTONS === */
+        .btn {
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
+          border: none;
+          cursor: pointer;
+          font-family: var(--font-body);
+          font-weight: 600;
+          font-size: 0.78rem;
+          letter-spacing: 0.1em;
+          text-transform: uppercase;
+          border-radius: 50px;
+          padding: 14px 30px;
+          transition: var(--t);
+        }
+        .btn-primary {
+          background: var(--rose-gold);
+          color: var(--white);
+          box-shadow: 0 4px 16px rgba(233,30,99,0.35);
+        }
+        .btn-primary:hover {
+          background: var(--rose-dark);
+          transform: translateY(-2px);
+          box-shadow: 0 8px 24px rgba(233,30,99,0.4);
+          color: var(--white);
+        }
+        .btn-ghost {
+          background: transparent;
+          color: var(--ink);
+          border: 1.5px solid rgba(13,27,42,0.2);
+        }
+        .btn-ghost:hover {
+          border-color: var(--rose-gold);
+          color: var(--rose-gold);
+        }
+
+        /* === SECTION SKELETON === */
+        .section-header {
+          text-align: center;
+          margin-bottom: 60px;
+        }
+        .section-eyebrow {
+          display: inline-flex;
+          align-items: center;
+          gap: 10px;
+          font-size: 0.68rem;
+          font-weight: 600;
+          letter-spacing: 0.2em;
+          text-transform: uppercase;
+          color: var(--rose-gold);
+          margin-bottom: 16px;
+        }
+        .section-eyebrow::before, .section-eyebrow::after {
+          content: '';
+          display: block;
+          width: 22px; height: 1px;
+          background: var(--rose-gold);
+          opacity: 0.5;
+        }
+        .section-title {
+          font-size: clamp(2rem, 4vw, 3rem);
+          font-weight: 300;
+          color: var(--ink);
+          margin-bottom: 16px;
+          letter-spacing: -0.02em;
+        }
+        .section-title em {
+          font-style: italic;
+          color: var(--rose-gold);
+        }
+        .section-subtitle {
+          font-size: 0.9rem;
+          color: var(--ink-soft);
+          max-width: 480px;
+          margin: 0 auto;
+          font-weight: 300;
+          line-height: 1.8;
+        }
+
+        /* === ABOUT (Intro) === */
+        .about { padding: 100px 0; background: var(--white); }
+        .about-grid {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 80px;
+          align-items: center;
+        }
+        .about-image-wrap { position: relative; }
+        .about-image-wrap::after {
+          content: '';
+          position: absolute;
+          bottom: -18px; right: -18px;
+          width: 70%; height: 70%;
+          border: 1.5px solid var(--border);
+          border-radius: var(--radius);
+          z-index: 0;
+        }
+        .about-image-wrap img {
+          width: 100%;
+          height: 540px;
+          object-fit: cover;
+          border-radius: var(--radius);
+          box-shadow: var(--shadow-lg);
+          position: relative;
+          z-index: 1;
+          transition: var(--t);
+        }
+        .about-image-wrap:hover img { transform: scale(1.02); }
+        .about-kicker {
+          display: inline-flex;
+          align-items: center;
+          gap: 10px;
+          font-size: 0.68rem;
+          font-weight: 600;
+          letter-spacing: 0.2em;
+          text-transform: uppercase;
+          color: var(--rose-gold);
+          margin-bottom: 20px;
+        }
+        .about-kicker::before {
+          content: '';
+          display: block;
+          width: 22px; height: 1px;
+          background: var(--rose-gold);
+        }
+        .about-heading {
+          font-size: clamp(1.8rem, 3vw, 2.5rem);
+          font-weight: 300;
+          margin-bottom: 24px;
+          letter-spacing: -0.015em;
+          line-height: 1.15;
+        }
+        .about-heading em { font-style: italic; color: var(--rose-gold); }
+        .about-body {
+          font-size: 0.9375rem;
+          color: var(--ink-soft);
+          line-height: 1.8;
+          font-weight: 300;
+          margin-bottom: 18px;
+        }
+
+        /* === VALUES === */
+        .values { padding: 100px 0; background: var(--cream); }
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+        }
+        .value-item {
+            background: var(--white);
+            border-radius: var(--radius);
+            padding: 36px;
+            box-shadow: var(--shadow-sm);
+            transition: var(--t);
+            border: 1px solid transparent;
+        }
+        .value-item:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--border);
+        }
+        .value-icon {
+            width: 52px; height: 52px;
+            background: var(--blush);
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        .value-icon i { font-size: 1.2rem; color: var(--rose-dark); }
+        .value-item h3 {
+            font-family: var(--font-display);
+            font-size: 1.45rem;
+            color: var(--ink);
+            margin-bottom: 12px;
+        }
+        .value-item p {
+            font-size: 0.875rem;
+            color: var(--ink-soft);
+            line-height: 1.75;
+        }
+
+        /* === SERVICES (Tabs/Accordion) === */
+        .services { padding: 100px 0; background: var(--white); }
+        .services-tabs { margin-top: 50px; display: flex; flex-direction: column; gap: 20px; }
+        .service-tab {
+            background: var(--white);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid transparent;
+            transition: var(--t);
+        }
+        .service-tab:hover { border-color: var(--border); }
+        .tab-header {
+            background: var(--cream);
+            padding: 24px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            transition: var(--t);
+        }
+        .tab-header h3 {
+            font-family: var(--font-display);
+            font-size: 1.4rem;
+            color: var(--ink);
+            margin: 0;
+        }
+        .tab-header i { color: var(--rose-gold); transition: var(--t); }
+        .service-tab.active .tab-header {
+            background: var(--rose-gold);
+        }
+        .service-tab.active .tab-header h3 { color: var(--white); }
+        .service-tab.active .tab-header i { color: var(--white); transform: rotate(180deg); }
+        .tab-content {
+            padding: 0 30px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease, padding 0.3s ease;
+        }
+        .service-tab.active .tab-content {
+            padding: 30px;
+            max-height: 1000px;
+        }
+        .tab-content-inner {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+        .tab-image {
+            flex: 1;
+            border-radius: var(--radius);
+            overflow: hidden;
+        }
+        .tab-image img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+        .tab-text { flex: 2; }
+        .tab-text h4 {
+            font-family: var(--font-display);
+            font-size: 1.35rem;
+            color: var(--ink);
+            margin-bottom: 15px;
+        }
+        .tab-text p {
+            font-size: 0.9rem;
+            color: var(--ink-soft);
+            margin-bottom: 20px;
+            line-height: 1.7;
+        }
+        .features-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-size: 0.875rem;
+            color: var(--ink-soft);
+        }
+        .feature-item i { color: var(--rose-gold); margin-top: 3px; }
+
+        /* === CLIENT LOGOS === */
+        .client-logos { padding: 80px 0; background: var(--cream); }
+        .logos-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 24px;
+            margin-top: 50px;
+        }
+        .client-logo {
+            font-family: var(--font-display);
+            font-size: 1.3rem;
+            font-weight: 500;
+            color: var(--ink-soft);
+            opacity: 0.6;
+            transition: var(--t);
+            padding: 12px 24px;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+        }
+        .client-logo:hover {
+            opacity: 1;
+            color: var(--rose-gold);
+            border-color: var(--rose-gold);
+            transform: translateY(-3px);
+        }
+
+        /* === PORTFOLIO (Gallery) === */
+        .portfolio { padding: 100px 0; background: var(--ink); }
+        .portfolio .section-title { color: var(--white); }
+        .portfolio .section-subtitle { color: rgba(255,255,255,0.5); }
+        .portfolio .section-eyebrow { color: var(--rose-gold); }
+        .portfolio .section-eyebrow::before,
+        .portfolio .section-eyebrow::after { background: var(--rose-gold); }
+        .portfolio-grid {
+          display: grid;
+          grid-template-columns: 1.4fr 1fr;
+          grid-template-rows: 320px 260px;
+          gap: 14px;
+        }
+        .portfolio-item {
+          position: relative;
+          border-radius: var(--radius);
+          overflow: hidden;
+          cursor: pointer;
+        }
+        .portfolio-item:first-child { grid-row: span 2; }
+        .portfolio-item img {
+          width: 100%; height: 100%;
+          object-fit: cover;
+          transition: transform 0.5s var(--ease);
+          filter: brightness(0.88);
+        }
+        .portfolio-item:hover img {
+          transform: scale(1.07);
+          filter: brightness(0.7);
+        }
+        .portfolio-overlay {
+          position: absolute;
+          inset: 0;
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-end;
+          padding: 28px;
+          background: linear-gradient(to top, rgba(13,27,42,0.85) 0%, transparent 55%);
+          opacity: 0;
+          transition: var(--t);
+        }
+        .portfolio-item:hover .portfolio-overlay { opacity: 1; }
+        .portfolio-overlay h4 {
+          font-family: var(--font-display);
+          font-size: 1.35rem;
+          font-weight: 400;
+          color: var(--white);
+          margin-bottom: 6px;
+        }
+        .portfolio-overlay p {
+          font-size: 0.8rem;
+          color: rgba(255,255,255,0.75);
+          font-weight: 300;
+        }
+        .portfolio-label {
+          position: absolute;
+          bottom: 20px; left: 24px;
+          font-family: var(--font-display);
+          font-size: 1.1rem;
+          font-weight: 400;
+          font-style: italic;
+          color: var(--white);
+          text-shadow: 0 2px 12px rgba(0,0,0,0.4);
+          transition: var(--t);
+        }
+        .portfolio-item:hover .portfolio-label { opacity: 0; }
+
+        /* === CTA SECTION === */
+        .cta-section {
+            padding: 100px 0;
+            text-align: center;
+            background: linear-gradient(135deg, var(--rose-gold), var(--rose-dark));
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: -50%; left: 50%;
+            transform: translateX(-50%);
+            width: 800px; height: 800px;
+            border-radius: 50%;
+            border: 1px solid rgba(255,255,255,0.1);
+            pointer-events: none;
+        }
+        .cta-section h2 {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 300;
+            color: var(--white);
+            margin-bottom: 16px;
+            position: relative;
+        }
+        .cta-section h2 em { font-style: italic; }
+        .cta-section p {
+            font-size: 1rem;
+            max-width: 600px;
+            margin: 0 auto 40px;
+            color: rgba(255,255,255,0.9);
+            font-weight: 300;
+            line-height: 1.8;
+            position: relative;
+        }
+        .cta-section .btn {
+            background: var(--white);
+            color: var(--rose-gold);
+            box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+            position: relative;
+        }
+        .cta-section .btn:hover {
+            background: var(--cream);
+            color: var(--rose-dark);
+            transform: translateY(-2px);
+        }
+
+        /* === FOOTER === */
+        .footer {
+          background: var(--ink);
+          color: var(--white);
+          padding: 72px 0 32px;
+        }
+        .footer-grid {
+          display: grid;
+          grid-template-columns: 1.5fr 1fr 1fr;
+          gap: 60px;
+          margin-bottom: 56px;
+        }
+        .footer-brand .logo {
+          color: var(--white);
+          display: block;
+          margin-bottom: 16px;
+        }
+        .footer-brand .logo span { color: var(--rose-gold); }
+        .footer-brand p {
+          font-size: 0.85rem;
+          color: rgba(255,255,255,0.4);
+          font-weight: 300;
+          line-height: 1.8;
+          max-width: 260px;
+        }
+        .footer-col h5 {
+          font-family: var(--font-body);
+          font-size: 0.65rem;
+          font-weight: 600;
+          letter-spacing: 0.18em;
+          text-transform: uppercase;
+          color: var(--rose-gold);
+          margin-bottom: 22px;
+        }
+        .footer-col > a {
+          display: block;
+          font-size: 0.875rem;
+          color: rgba(255,255,255,0.45);
+          font-weight: 300;
+          margin-bottom: 11px;
+          transition: var(--t);
+        }
+        .footer-col > a:hover { color: var(--white); padding-left: 4px; }
+        .social-row {
+          display: flex;
+          gap: 10px;
+          flex-wrap: wrap;
+        }
+        .social-btn {
+          width: 38px; height: 38px;
+          border-radius: 50%;
+          background: rgba(255,255,255,0.07);
+          border: 1px solid rgba(255,255,255,0.1);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: rgba(255,255,255,0.6);
+          font-size: 0.8rem;
+          transition: var(--t);
+        }
+        .social-btn:hover {
+          background: var(--rose-gold);
+          border-color: var(--rose-gold);
+          color: var(--white);
+          transform: translateY(-3px);
+        }
+        .footer-bottom {
+          padding-top: 28px;
+          border-top: 1px solid rgba(255,255,255,0.06);
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          flex-wrap: wrap;
+          gap: 8px;
+        }
+        .footer-bottom p {
+          font-size: 0.78rem;
+          color: rgba(255,255,255,0.25);
+          font-weight: 300;
+        }
+
+        /* === RESPONSIVE === */
+        @media (max-width: 1024px) {
+          .about-grid { grid-template-columns: 1fr; gap: 48px; }
+          .about-image-wrap img { height: 400px; }
+          .about-image-wrap::after { display: none; }
+          .tab-content-inner { flex-direction: column; }
+          .tab-image { width: 100%; }
+          .portfolio-grid { grid-template-columns: 1fr 1fr; grid-template-rows: 260px 220px; }
+          .portfolio-item:first-child { grid-row: span 1; grid-column: span 2; }
+          .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+        }
+        @media (max-width: 768px) {
+          .navbar {
+            position: fixed;
+            top: 70px; left: 0; width: 100%;
+            flex-direction: column;
+            background: var(--cream);
+            padding: 24px 28px;
+            gap: 20px;
+            box-shadow: var(--shadow-md);
+            transform: translateY(-110%);
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--t);
+            z-index: 999;
+            align-items: flex-start;
+            border-bottom: 1px solid var(--border);
+          }
+          .navbar.active { transform: translateY(0); opacity: 1; visibility: visible; }
+          .menu-toggle { display: block; }
+          .nav-cta { margin-top: 4px; }
+          .corporate-hero { padding: 140px 0 80px; min-height: 70vh; }
+          .portfolio-grid { grid-template-columns: 1fr; grid-template-rows: auto; }
+          .portfolio-item { height: 260px; }
+          .portfolio-item:first-child { grid-column: span 1; }
+          .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+          .footer-bottom { flex-direction: column; text-align: center; }
+        }
+        @media (max-width: 480px) {
+          .btn { padding: 12px 24px; font-size: 0.72rem; }
+          .value-item { padding: 28px 22px; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+          *, *::before, *::after { transition: none !important; }
+          html { scroll-behavior: auto; }
+        }
+        :focus-visible {
+          outline: 2px solid var(--rose-gold);
+          outline-offset: 3px;
+          border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <header class="header" id="site-header">
+        <div class="container">
+            <a href="../index.html" class="logo">Sage<span>Events</span></a>
+            <nav class="navbar" id="navbar">
+                <a href="../index.html#home" class="nav-link">Home</a>
+                <a href="../index.html#about" class="nav-link">About</a>
+                <a href="../index.html#services" class="nav-link">Services</a>
+                <a href="../index.html#portfolio" class="nav-link">Portfolio</a>
+                <a href="../index.html#contact" class="nav-link">Contact</a>
+                <a href="../index.html#contact" class="nav-cta">Plan Your Event</a>
+            </nav>
+            <button class="menu-toggle" id="menu-toggle" aria-label="Menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Corporate Hero Section -->
+    <section class="corporate-hero">
+        <div class="hero-inner">
+            <span class="hero-eyebrow">Sage Events</span>
+            <h1 class="hero-title">Corporate <em>Events</em></h1>
+            <p class="hero-subtitle">We bring professionalism and creativity together to deliver seamless, high-impact corporate events that inspire, engage and leave a lasting impression.</p>
+            <div class="hero-actions">
+                <a href="../index.html#contact" class="btn btn-primary">Plan Your Corporate Event</a>
+                <a href="#corporate-services" class="btn btn-ghost">Our Services</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Corporate Intro -->
+    <section class="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-image-wrap">
+                    <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Professional corporate conference">
+                </div>
+                <div class="about-text">
+                    <span class="about-kicker">Elevating Business</span>
+                    <h2 class="about-heading">Elevating Business Through <em>Exceptional Events</em></h2>
+                    <p class="about-body">At Sage Events, we understand that corporate events are more than just gatherings—they're strategic opportunities to strengthen relationships, inspire teams, showcase innovations, and drive business objectives forward. Our approach combines meticulous planning with creative vision to deliver events that exceed expectations.</p>
+                    <p class="about-body">With expertise spanning conferences, product launches, team-building retreats, galas, and executive meetings, we partner with organizations of all sizes to create memorable experiences that align with brand values and corporate goals.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Corporate Values -->
+    <section class="values">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-eyebrow">Our Approach</span>
+                <h2 class="section-title">Why Choose <em>Sage Events</em></h2>
+                <p class="section-subtitle">Why leading businesses trust us for their most important gatherings</p>
+            </div>
+            
+            <div class="values-grid">
+                <div class="value-item">
+                    <div class="value-icon"><i class="fas fa-chart-line"></i></div>
+                    <h3>Strategic Planning</h3>
+                    <p>Every event begins with a clear understanding of your business objectives, target audience, and desired outcomes to ensure alignment with corporate goals.</p>
+                </div>
+                
+                <div class="value-item">
+                    <div class="value-icon"><i class="fas fa-users-cog"></i></div>
+                    <h3>Professional Execution</h3>
+                    <p>Our experienced team manages every detail with precision, from venue selection and logistics to technology integration and vendor coordination.</p>
+                </div>
+                
+                <div class="value-item">
+                    <div class="value-icon"><i class="fas fa-lightbulb"></i></div>
+                    <h3>Innovative Solutions</h3>
+                    <p>We incorporate the latest event technology and creative concepts to deliver engaging, memorable experiences that stand out in today's competitive landscape.</p>
+                </div>
+                
+                <div class="value-item">
+                    <div class="value-icon"><i class="fas fa-balance-scale"></i></div>
+                    <h3>Budget Management</h3>
+                    <p>Transparent financial planning and cost optimization ensure maximum return on investment without compromising quality or experience.</p>
+                </div>
+                
+                <div class="value-item">
+                    <div class="value-icon"><i class="fas fa-shield-alt"></i></div>
+                    <h3>Risk Mitigation</h3>
+                    <p>Comprehensive contingency planning and crisis management protocols ensure your event proceeds smoothly regardless of unforeseen challenges.</p>
+                </div>
+                
+                <div class="value-item">
+                    <div class="value-icon"><i class="fas fa-clipboard-check"></i></div>
+                    <h3>Measurable Results</h3>
+                    <p>Post-event analysis and reporting provide valuable insights into attendee engagement, ROI, and opportunities for future improvement.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Corporate Services -->
+    <section class="services" id="corporate-services">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-eyebrow">What We Offer</span>
+                <h2 class="section-title">Corporate <em>Event Services</em></h2>
+                <p class="section-subtitle">Comprehensive solutions for every type of corporate gathering</p>
+            </div>
+            
+            <div class="services-tabs">
+                <div class="service-tab active">
+                    <div class="tab-header">
+                        <h3>Conferences & Conventions</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="tab-content">
+                        <div class="tab-content-inner">
+                            <div class="tab-image">
+                                <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1770&q=80" alt="Large conference event">
+                            </div>
+                            <div class="tab-text">
+                                <h4>Industry-Leading Conference Management</h4>
+                                <p>From intimate industry gatherings to large-scale conventions, we handle every aspect of conference planning with precision and professionalism. Our team ensures seamless registration, engaging programming, cutting-edge technology, and memorable networking opportunities.</p>
+                                
+                                <div class="features-list">
+                                    <div class="feature-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Full-scale event planning and management</span>
+                                    </div>
+                                    <div class="feature-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Speaker coordination and presentation support</span>
+                                    </div>
+                                    <div class="feature-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Exhibition and sponsorship management</span>
+                                    </div>
+                                    <div class="feature-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Interactive technology and audience engagement tools</span>
+                                    </div>
+                                    <div class="feature-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>On-site staffing and logistics coordination</span>
+                                    </div>
+                                    <div class="feature-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Post-event analytics and reporting</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="service-tab">
+                    <div class="tab-header">
+                        <h3>Product Launches</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="tab-content">
+                        <div class="tab-content-inner">
+                            <div class="tab-image">
+                                <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2069&q=80" alt="Product launch event">
+                            </div>
+                            <div class="tab-text">
+                                <h4>Memorable Product Introduction Experiences</h4>
+                                <p>Create buzz and excitement around new products with strategically planned launch events that capture media attention, engage stakeholders, and generate market momentum. We specialize in creating immersive brand experiences that leave lasting impressions.</p>
+                                
+                                <div class="features-list">
+                                    <div class="feature-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Strategic concept development and theme creation</span>
+                                    </div>
+                                    <div class="feature-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Media relations and press coverage coordination</span>
+                                    </div>
+                                    <div class="feature-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Immersive brand experience design</span>
+                                    </div>
+                                    <div class="feature-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>VIP and influencer guest management</span>
+                                    </div>
+                                    <div class="feature-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Digital and social media integration</span>
+                                    </div>
+                                    <div class="feature-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Post-event lead follow-up and analytics</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="service-tab">
+                    <div class="tab-header">
+                        <h3>Team Building & Retreats</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="tab-content">
+                        <div class="tab-content-inner">
+                            <div class="tab-image">
+                                <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?ixlib=rb-4.0.3&auto=format&fit=crop&w=1674&q=80" alt="Team building activity">
+                            </div>
+                            <div class="tab-text">
+                                <h4>Strengthening Teams Through Shared Experiences</h4>
+                                <p>Foster collaboration, improve communication, and boost morale with thoughtfully designed team-building activities and corporate retreats. We create environments where teams can connect, innovate, and grow together.</p>
+                                
+                                <div class="features-list">
+                                    <div class="feature-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Customized team-building activity design</span>
+                                    </div>
+                                    <div class="feature-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Strategic retreat venue selection and logistics</span>
+                                    </div>
+                                    <div class="feature-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Facilitation and leadership development programming</span>
+                                    </div>
+                                    <div class="feature-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Wellness and work-life balance integration</span>
+                                    </div>
+                                    <div class="feature-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Post-event team assessment and feedback</span>
+                                    </div>
+                                    <div class="feature-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Follow-up reinforcement activities</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Client Logos -->
+    <section class="client-logos">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-eyebrow">Partners</span>
+                <h2 class="section-title">Trusted by <em>Industry Leaders</em></h2>
+                <p class="section-subtitle">We've partnered with forward-thinking organizations across sectors</p>
+            </div>
+            
+            <div class="logos-container">
+                <div class="client-logo">TechCorp</div>
+                <div class="client-logo">Global Finance</div>
+                <div class="client-logo">Innovate Solutions</div>
+                <div class="client-logo">HealthFirst</div>
+                <div class="client-logo">EcoSystems</div>
+                <div class="client-logo">FutureTech</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Corporate Gallery -->
+    <section class="portfolio">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-eyebrow">Our Work</span>
+                <h2 class="section-title">Corporate <em>Portfolio</em></h2>
+                <p class="section-subtitle">A showcase of successful corporate events we've produced</p>
+            </div>
+            
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1770&q=80" alt="International business conference">
+                    <span class="portfolio-label">Tech Conference</span>
+                    <div class="portfolio-overlay">
+                        <h4>International Tech Conference</h4>
+                        <p>3-day event for 1,500+ attendees with 75+ speakers</p>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item">
+                    <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2069&q=80" alt="Product launch event">
+                    <span class="portfolio-label">Product Launch</span>
+                    <div class="portfolio-overlay">
+                        <h4>Global Product Launch</h4>
+                        <p>Immersive launch event for next-generation technology</p>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item">
+                    <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?ixlib=rb-4.0.3&auto=format&fit=crop&w=1674&q=80" alt="Corporate gala dinner">
+                    <span class="portfolio-label">Annual Gala</span>
+                    <div class="portfolio-overlay">
+                        <h4>Annual Corporate Gala</h4>
+                        <p>Elegant awards dinner celebrating company achievements</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Corporate CTA -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Elevate Your <em>Next Corporate Event?</em></h2>
+            <p>Partner with Sage Events to create impactful corporate gatherings that drive business results, strengthen relationships, and leave lasting impressions. Let's discuss how we can bring your vision to life.</p>
+            <a href="../index.html#contact" class="btn">Schedule a Consultation</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="../index.html" class="logo">Sage<span>Events</span></a>
+                    <p>Bringing strategic vision to corporate events, one successful gathering at a time.</p>
+                </div>
+
+                <div class="footer-col">
+                    <h5>Quick Links</h5>
+                    <a href="../index.html">Home</a>
+                    <a href="../index.html#about">About Us</a>
+                    <a href="../index.html#services">Services</a>
+                    <a href="../index.html#portfolio">Portfolio</a>
+                    <a href="../index.html#contact">Contact</a>
+                </div>
+
+                <div class="footer-col">
+                    <h5>Follow Us</h5>
+                    <div class="social-row">
+                        <a href="#" class="social-btn" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-btn" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                        <a href="#" class="social-btn" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-btn" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 Sage Events. All rights reserved.</p>
+                <p>Nairobi, Kenya | Professional Corporate Event Planning</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menu-toggle');
+        const navbar = document.getElementById('navbar');
+        
+        if(menuToggle) {
+            menuToggle.addEventListener('click', () => {
+                navbar.classList.toggle('active');
+                const icon = menuToggle.querySelector('i');
+                icon.classList.toggle('fa-bars');
+                icon.classList.toggle('fa-times');
+            });
+        }
+        
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+        
+        // Tab functionality for corporate services
+        const serviceTabs = document.querySelectorAll('.service-tab');
+        serviceTabs.forEach(tab => {
+            const header = tab.querySelector('.tab-header');
+            header.addEventListener('click', () => {
+                serviceTabs.forEach(otherTab => {
+                    if (otherTab !== tab) otherTab.classList.remove('active');
+                });
+                tab.classList.toggle('active');
+            });
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const targetId = this.getAttribute('href');
+                if (targetId === '#' || targetId.length < 2) return;
+                
+                if (targetId.includes('../index.html')) {
+                    window.location.href = targetId;
+                    return;
+                }
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    e.preventDefault();
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    if(navbar && navbar.classList.contains('active')) {
+                        navbar.classList.remove('active');
+                        menuToggle.querySelector('i').classList.add('fa-bars');
+                        menuToggle.querySelector('i').classList.remove('fa-times');
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
